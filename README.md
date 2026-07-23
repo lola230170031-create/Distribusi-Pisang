@@ -6,7 +6,8 @@ Sistem Informasi Gudang Jual Beli Pisang merupakan aplikasi berbasis web yang di
 
 Aplikasi ini digunakan untuk mengelola data jenis pisang, kategori, supplier, transaksi pisang masuk, distribusi pisang keluar, serta menyediakan laporan PDF.
 
-Dibuat menggunakan framework Laravel untuk memenuhi tugas Ujian Akhir Semester (UAS) Pemrograman Web Lanjut.
+Aplikasi ini dibuat menggunakan framework Laravel untuk memenuhi tugas Ujian Akhir Semester (UAS) Pemrograman Web Lanjut.
+
 
 ---
 
@@ -18,11 +19,12 @@ Program Studi : Teknik Informatika
 
 Universitas : Universitas Malikussaleh
 
+
 ---
 
 # Teknologi yang Digunakan
 
-Aplikasi ini dibuat menggunakan teknologi:
+Teknologi yang digunakan pada aplikasi ini:
 
 - Laravel 13
 - PHP 8.4
@@ -52,21 +54,22 @@ Fitur autentikasi:
 
 Terdapat dua jenis pengguna:
 
-### Admin
 
-Admin dapat:
+## Admin
+
+Admin memiliki hak akses:
 
 - Mengelola kategori pisang
 - Mengelola data pisang
 - Mengelola supplier
-- Mengelola pisang masuk
+- Mengelola transaksi pisang masuk
 - Mengelola distribusi pisang keluar
-- Export laporan PDF
+- Melakukan export laporan PDF
 
 
-### User
+## User
 
-User dapat:
+User memiliki hak akses:
 
 - Login ke sistem
 - Melihat dashboard
@@ -78,6 +81,7 @@ User dapat:
 # 2. CRUD (Create, Read, Update, Delete)
 
 Fitur CRUD yang tersedia:
+
 
 ## Kategori Pisang
 
@@ -104,7 +108,8 @@ Admin dapat:
 Admin dapat:
 
 - Menambah supplier
-- Mengedit supplier
+- Melihat supplier
+- Mengubah supplier
 - Menghapus supplier
 
 
@@ -162,6 +167,7 @@ Tampilan menggunakan Bootstrap 5 sehingga dapat digunakan pada:
 - Tablet
 - Smartphone
 
+
 ---
 
 # Cara Instalasi
@@ -177,14 +183,233 @@ Pastikan sudah terinstall:
 - Node.js
 
 
+---
+
 ## 2. Clone Repository
 
-Setelah project sudah diupload ke GitHub, jalankan:
+Jalankan perintah:
 
 ```bash
-git clone link_repository_github
+git clone https://github.com/lola230170031-create/Distribusi-Pisang.git
+```
+
+
+---
 
 ## 3. Masuk Folder Project
 
 ```bash
 cd Distribusi-Pisang
+```
+
+
+---
+
+## 4. Install Dependency Laravel
+
+```bash
+composer install
+```
+
+
+Install package frontend:
+
+```bash
+npm install
+```
+
+
+---
+
+## 5. Konfigurasi Database
+
+Buat database MySQL:
+
+```
+gudang_distribusi
+```
+
+
+Atur file `.env`:
+
+```
+DB_DATABASE=gudang_distribusi
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+
+---
+
+## 6. Jalankan Migration dan Seeder
+
+```bash
+php artisan migrate --seed
+```
+
+
+---
+
+## 7. Jalankan Aplikasi
+
+Terminal pertama:
+
+```bash
+php artisan serve
+```
+
+
+Terminal kedua:
+
+```bash
+npm run dev
+```
+
+
+Buka browser:
+
+```
+http://127.0.0.1:8000
+```
+
+
+---
+
+# Akun Demo
+
+
+## Admin
+
+Email:
+
+```
+admin@pisang.com
+```
+
+Password:
+
+```
+password
+```
+
+
+Hak akses:
+
+- Mengelola seluruh data sistem
+- CRUD data pisang
+- Mengelola supplier
+- Export laporan PDF
+
+
+
+## User
+
+Email:
+
+```
+user@pisang.com
+```
+
+Password:
+
+```
+password
+```
+
+
+Hak akses:
+
+- Melihat dashboard
+- Melihat data pisang
+
+
+---
+
+# Dokumentasi Sistem
+
+
+## 1. Halaman Login
+
+Halaman login digunakan pengguna untuk masuk ke dalam sistem.
+
+![Login](dokumentasi/login.png)
+
+
+
+## 2. Dashboard
+
+Dashboard menampilkan jumlah data pisang, supplier, stok, transaksi masuk, distribusi keluar, grafik aktivitas gudang, dan informasi stok.
+
+![Dashboard](dokumentasi/dashboard.png)
+
+
+
+## 3. CRUD Data Pisang
+
+Admin dapat melakukan tambah, lihat, ubah, dan hapus data pisang.
+
+![CRUD Barang](dokumentasi/Crud Barang. png.png)
+
+
+
+## 4. Hak Akses Admin dan User
+
+Sistem memiliki dua role pengguna:
+
+- Admin : Mengelola seluruh fitur sistem.
+- User : Melihat informasi dashboard dan data pisang.
+
+
+![Role User](dokumentasi/role-user.png)
+
+
+
+## 5. REST API
+
+Sistem menyediakan REST API untuk data barang dan supplier.
+
+Endpoint API:
+
+
+Barang:
+
+```
+GET /api/barang
+POST /api/barang
+PUT /api/barang/{id}
+DELETE /api/barang/{id}
+```
+
+
+Supplier:
+
+```
+GET /api/supplier
+POST /api/supplier
+PUT /api/supplier/{id}
+DELETE /api/supplier/{id}
+```
+
+
+Pengujian dilakukan menggunakan Postman.
+
+
+![REST API](dokumentasi/api-barang.png)
+
+
+
+## 6. Export Laporan PDF
+
+Admin dapat melakukan export laporan data pisang dalam format PDF.
+
+
+![Export PDF](dokumentasi/export-pdf.png)
+
+
+
+## 7. Responsive Mobile
+
+Tampilan sistem menggunakan Bootstrap 5 sehingga dapat digunakan pada perangkat mobile.
+
+
+![Responsive Mobile](dokumentasi/responsive-mobile.png)
